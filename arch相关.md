@@ -1,5 +1,26 @@
 Arch Wiki CN
 https://wiki.archlinux.org/index.php/Arch_Linux_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+sudo aptitude install deepin-terminal=5.0.4.1
+arco镜像站
+https://bike.seedhost.eu/arcolinux/iso/
+皮皮直连
+https://www.ppzhilian.com/
+
+nano开启图形界面
+sudo systemctl set-default graphical.target
+sudo reboot
+关闭
+sudo systemctl set-default multi-user.target
+sudo reboot
+
+vbox隐藏菜单栏：
+HostKey + Home
+
+win精简版
+https://www.winos.me/windows10/
+
+浏览器P2P
+http://pplink.link/
 
 动态壁纸
 http://bbs.huoying666.com/forum-53-1.html
@@ -7,6 +28,15 @@ http://bbs.huoying666.com/forum-53-1.html
 默认zsh
 sudo chsh -s /bin/zsh
 
+flv/mkv -> mp4
+ffmpeg -i "xxx.mkv" -vcodec copy -acodec copy "xxx.mp4"
+
+xp https qq安装不安全
+KB931125-rootsupd
+https://zhidao.baidu.com/question/1371411766700718419.html
+
+
+Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.huaweicloud.com/archlinux/$repo/os/$arch
 Server = https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch
 Server = http://mirrors.163.com/archlinux/$repo/os/$arch
@@ -14,6 +44,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 
 [archlinuxcn]
 SigLevel = Never
+Server =  https://mirrors.bfsu.edu.cn/archlinuxcn/$arch
 Server = http://mirrors.163.com/archlinux-cn/$arch
 #Server = https://mirrors.cloud.tencent.com/archlinuxcn/$arch
 #Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
@@ -24,6 +55,9 @@ netease网易云音乐中文
 https://gitee.com/sakura99/netease-cloud-music_For_Arch
 
 nvidia 显卡
+prime方案
+https://blog.sakuya.love/archives/linuxgpu/
+optimus方案
 sudo pacman -S nvidia bbswitch optimus-manager-qt lib32-nvidia-utils
 https://tieba.baidu.com/p/6340530678
 
@@ -178,6 +212,16 @@ neofetch
 https://download.fastgit.org/Brx86/brx86/releases/download/1/neofetch
 
 fcitx-qt5
+sudo pacman -S --noconfirm fcitx5 fcitx5-chinese-addons fcitx5-qt fcitx5-gtk fcitx5-qt4 fcitx5-configtool fcitx5-material-color fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki
+
+.xprofile
+export QT_IM_MODULE=fcitx5
+export GTK_MODULE=fcitx
+#export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+fcitx5 &
+
+
 https://www.jianshu.com/p/2fdc6cc2aa8d
 https://www.csslayer.info/wordpress/fcitx-dev/%e5%a6%82%e4%bd%95%e7%8e%b0%e5%9c%a8%e5%b0%b1%e5%9c%a8-arch-linux-%e7%94%a8%e4%b8%8a-fcitx-5/
 
@@ -187,4 +231,19 @@ chown -R aya /home/aya
 grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
-sudo pacman -S --noconfirm axel uget uget-integrator-firefox flashplugin netease-cloud-music sublime-text-imfix virtualbox virtualbox-host-dkms redshift motrix-git  baidunetdisk-bin wps-office ttf-wps-fonts wps-office-mui-zh-cn hmcl remmina freerdp evince deepin.com.qq.im steam onedrive noto-fonts-cjk noto-fonts-emoji noto-fonts flameshot-git baka-mplayer fsearch-git albert pikaur
+pacman-key --init
+pacman-key --populate archlinux
+pacman -S archlinux-keyring
+pacman -S archlinuxcn-keyring
+
+sudo pacman -S --noconfirm axel uget uget-integrator-firefox flashplugin netease-cloud-music sublime-text-imfix virtualbox virtualbox-host-dkms redshift motrix-git  baidunetdisk-bin wps-office ttf-wps-fonts wps-office-mui-zh-cn hmcl remmina freerdp evince deepin.com.qq.im steam onedrive flameshot-git baka-mplayer fsearch-git albert pikaur xfce4-clipman-plugin
+
+chrome
+如需拖拽安装插件，则请在启动命令后加上 --enable-easy-off-store-extension-install
+
+sudo pacman -S --noconfirm axel uget uget-integrator-firefox flashplugin virtualbox virtualbox-host-dkms redshift motrix-git baidunetdisk-bin wps-office ttf-wps-fonts wps-office-mui-zh-cn hmcl remmina freerdp evince steam onedrive flameshot-git baka-mplayer fsearch-git albert pikaur
+
+//WSL-Ubuntu18.04 LTS 重启方法
+//以管理员权限运行cmd
+>net stop LxssManager	//停止
+>>net start LxssManager	//启动
