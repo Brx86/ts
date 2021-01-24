@@ -23,9 +23,9 @@ HostKey + Home
 
 **flv/mkv -> mp4**  ```ffmpeg -i "xxx.mkv" -vcodec copy -acodec copy "xxx.mp4"```
 
-####xp https qq安装不安全 KB931125-rootsupd https://zhidao.baidu.com/question/1371411766700718419.html 
+**xp https qq安装不安全** KB931125-rootsupd https://zhidao.baidu.com/question/1371411766700718419.html 
 
-###Arch镜像站
+**Arch镜像站**
 ```
 Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 Server = https://mirrors.huaweicloud.com/archlinux/$repo/os/$arch
@@ -55,7 +55,7 @@ sudo pacman -S nvidia bbswitch optimus-manager-qt lib32-nvidia-utils
 
 **VMware**  https://blog.csdn.net/qq_44090577/article/details/94434578
 
-**临时关闭IPV6 ** 
+**临时关闭IPV6** 
 ```
 sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
 sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
@@ -72,8 +72,7 @@ wps-office-mui-zh-cn
 **deepin-qq中文字体**
 https://www.cnblogs.com/crab-in-the-northeast/p/change-chinese-font-of-deepin-wine-qq.html
 
-~conky~
-http://blog.sina.com.cn/s/blog_49895cf101014cw9.html
+~~**conky**  http://blog.sina.com.cn/s/blog_49895cf101014cw9.html~~
 
 sudo pacman -S wqy-microhei
 
