@@ -97,7 +97,7 @@ sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttf /usr/share/fonts/ms/
 sudo chmod 766 /usr/share/fonts/ms/* &&mkfontscale&&mkfontdir&&fc-cache -fv
 ```
 
-~~搜狗拼音  https://www.cnblogs.com/qscgy/archive/2020/07/27/13385905.html~~  
+~~**搜狗拼音**  https://www.cnblogs.com/qscgy/archive/2020/07/27/13385905.html~~  
 ~~yay -S fcitx fcitx-configtool fcitx-sogoupinyin aur/fcitx-qt4 --noconfirm &&sudo pacman -U https://arch-archive.tuna.tsinghua.edu.cn/2019/04-29/community/os/x86_64/fcitx-qt4-4.2.9.6-1-x86_64.pkg.tar.xz && sudo pacman -S fcitx fcitx-configtool fcitx-sogoupinyin~~
 
 **sublime3汉化** https://blog.csdn.net/Andrelia20171760/article/details/81814652?
@@ -189,12 +189,9 @@ pacman -S archlinuxcn-keyring
 **chrome  **
 如需拖拽安装插件，则请在启动命令后加上 --enable-easy-off-store-extension-install
 
-~~常用软件~~  
+~~**常用软件**~~  
 ~~sudo pacman -S --noconfirm axel flashplugin virtualbox virtualbox-host-dkms redshift motrix-git baidunetdisk-bin wps-office ttf-wps-fonts deepin-terminal-old hmcl remmina freerdp evince steam flameshot-git baka-mplayer fsearch-git pikaur  scrcpy~~  
 ~~sudo pacman -S --noconfirm axel uget uget-integrator-firefox flashplugin netease-cloud-music sublime-text-imfix virtualbox virtualbox-host-dkms redshift motrix-git  baidunetdisk-bin wps-office ttf-wps-fonts wps-office-mui-zh-cn hmcl remmina freerdp evince deepin.com.qq.im steam onedrive flameshot-git baka-mplayer fsearch-git albert pikaur xfce4-clipman-plugin~~
-
-
-
 
 **WSL-Ubuntu18.04 LTS 重启方法** 以管理员权限运行cmd
 ```
