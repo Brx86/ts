@@ -79,9 +79,23 @@ https://www.cnblogs.com/crab-in-the-northeast/p/change-chinese-font-of-deepin-wi
 
 ArcoLinux 的安装镜像分为三种：ArcoLinux、ArcoLinuxD 及 ArcoLinuxB。ArcoLinux 默认包含三个同时存在的桌面环境或窗口管理器：Xfce、OpenBox 及 i3。用户可以在这三个桌面之间快速地切换。ArcoLinuxD 是一个最小化安装，D 代表「Choose the Desktop」，它允许用户修改安装脚本并选择自己喜好的桌面环境。ArcoLinuxB 提供了高度的可定制性，B 代表「Build Your Own ISO」。其允许用户任意修改 ISO 文件。ArcoLinuxB 也预先提供了分别配有不同桌面环境的十余种预先构建好的安装镜像。这些桌面环境包括但不限于 Cinnamon、Awesome、Bugdie、GNOME、MATE 及 Plasama。
 
-sudo pacman -S --noconfirm adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-sans-tw-fonts 
- wps-office-mui-zh-cn
 
+**中文字体**
+```
+#能用
+sudo pacman -S ttf-dejavu wqy-zenhei wqy-microhei
+#Adobe中文全家桶
+sudo pacman -S --noconfirm adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-sans-tw-fonts 
+#谷歌中文全家桶
+sudo pacman -S --noconfirm noto-fonts-cjk noto-fonts-emoji noto-fonts
+#微软雅黑+宋体
+sudo pacman -U (path)/ttf-ms-win10-zh_cn-10.0.18362.116-2-any.pkg.tar.zst
+#自定义ms字体 
+sudo mkdir /usr/share/fonts/ms/
+sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttc /usr/share/fonts/ms/
+sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttf /usr/share/fonts/ms/
+sudo chmod 766 /usr/share/fonts/ms/* &&mkfontscale&&mkfontdir&&fc-cache -fv
+```
 
 ~~搜狗拼音  https://www.cnblogs.com/qscgy/archive/2020/07/27/13385905.html~~  
 ~~yay -S fcitx fcitx-configtool fcitx-sogoupinyin aur/fcitx-qt4 --noconfirm &&sudo pacman -U https://arch-archive.tuna.tsinghua.edu.cn/2019/04-29/community/os/x86_64/fcitx-qt4-4.2.9.6-1-x86_64.pkg.tar.xz && sudo pacman -S fcitx fcitx-configtool fcitx-sogoupinyin~~
@@ -93,11 +107,7 @@ sudo pacman -S --noconfirm adobe-source-han-serif-cn-fonts adobe-source-han-seri
 >2、在显示的搜索框输入 browser.tabs.closeTabByDblclick  
 >3、双击内容，切换为true 
   
-**微软雅黑 宋体 字体** /usr/share/fonts/ms/  
-SimSun  Msyh  
-```
-sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttc ./&&sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttf ./&&sudo chmod 766 *.ttc &&mkfontscale&&mkfontdir&&fc-cache -fv
-```
+
 
 **virtualbox错误Kernel driver not installed (rc=-1908) "arch"**  
 解决方法：```sudo pacman -S linux-headers virtualbox-host-modules-arch && sudo modprobe vboxdrv```
@@ -134,7 +144,7 @@ pip install pyyaml pymesh networkx vispy scipy tqdm torch vispy scipy tqdm Matpl
 
 **百度tts文字转语音api** https://tts.baidu.com/text2audio?tex=文字内容&cuid=baike&lan=ZH&ctp=1&pdt=301
 
-tar相关
+**tar常用命令**
 ```
 #tar.xz压缩
 tar -Jcvf xxx.tar.xz xxx
@@ -166,25 +176,28 @@ fcitx5 &
 
 **用户对目录的权限** ```chown -R aya /home/aya```
 
-grub
-grub-mkconfig -o /boot/grub/grub.cfg
+**grub**  ```grub-mkconfig -o /boot/grub/grub.cfg```
 
+**pacman密钥**
+```
 pacman-key --init
 pacman-key --populate archlinux
 pacman -S archlinux-keyring
 pacman -S archlinuxcn-keyring
+```
 
-sudo pacman -S --noconfirm axel uget uget-integrator-firefox flashplugin netease-cloud-music sublime-text-imfix virtualbox virtualbox-host-dkms redshift motrix-git  baidunetdisk-bin wps-office ttf-wps-fonts wps-office-mui-zh-cn hmcl remmina freerdp evince deepin.com.qq.im steam onedrive flameshot-git baka-mplayer fsearch-git albert pikaur xfce4-clipman-plugin
-
-chrome
+**chrome  **
 如需拖拽安装插件，则请在启动命令后加上 --enable-easy-off-store-extension-install
 
-sudo pacman -S --noconfirm axel flashplugin virtualbox virtualbox-host-dkms redshift motrix-git baidunetdisk-bin wps-office ttf-wps-fonts deepin-terminal-old hmcl remmina freerdp evince steam flameshot-git baka-mplayer fsearch-git pikaur  scrcpy
+~~常用软件~~  
+~~sudo pacman -S --noconfirm axel flashplugin virtualbox virtualbox-host-dkms redshift motrix-git baidunetdisk-bin wps-office ttf-wps-fonts deepin-terminal-old hmcl remmina freerdp evince steam flameshot-git baka-mplayer fsearch-git pikaur  scrcpy~~  
+~~sudo pacman -S --noconfirm axel uget uget-integrator-firefox flashplugin netease-cloud-music sublime-text-imfix virtualbox virtualbox-host-dkms redshift motrix-git  baidunetdisk-bin wps-office ttf-wps-fonts wps-office-mui-zh-cn hmcl remmina freerdp evince deepin.com.qq.im steam onedrive flameshot-git baka-mplayer fsearch-git albert pikaur xfce4-clipman-plugin~~
 
 
 
 
-//WSL-Ubuntu18.04 LTS 重启方法
-//以管理员权限运行cmd
->net stop LxssManager    //停止
->>net start LxssManager    //启动
+**WSL-Ubuntu18.04 LTS 重启方法** 以管理员权限运行cmd
+```
+net stop LxssManager    //停止  
+net start LxssManager    //启动
+```
