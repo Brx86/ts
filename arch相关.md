@@ -1,115 +1,78 @@
-Arch Wiki CN
-https://wiki.archlinux.org/index.php/Arch_Linux_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
-sudo aptitude install deepin-terminal=5.0.4.1
-arco镜像站
-https://bike.seedhost.eu/arcolinux/iso/
-皮皮直连
+**arco镜像站**  https://bike.seedhost.eu/arcolinux/iso/
+
+**皮皮直连**
 https://www.ppzhilian.com/
 
-nano开启图形界面
-sudo systemctl set-default graphical.target
+**jetson开启图形界面**
+```
+sudo systemctl set-default graphical.target #开启
 sudo reboot
-关闭
-sudo systemctl set-default multi-user.target
+sudo systemctl set-default multi-user.target #关闭
 sudo reboot
-
-vbox隐藏菜单栏：
+```
+**vbox隐藏菜单栏：**
 HostKey + Home
 
-win精简版
-https://www.winos.me/windows10/
+**win精简版** https://www.winos.me/windows10/
 
-浏览器P2P
-http://pplink.link/
+**浏览器P2Pxprofile** http://pplink.link/
 
-动态壁纸
-http://bbs.huoying666.com/forum-53-1.html
+**火萤动态壁纸** http://bbs.huoying666.com/forum-53-1.html  
 
-默认zsh
-sudo chsh -s /bin/zsh
+**默认zsh** ```sudo chsh -s /bin/zsh```
 
-flv/mkv -> mp4
-ffmpeg -i "xxx.mkv" -vcodec copy -acodec copy "xxx.mp4"
+**flv/mkv -> mp4**  ```ffmpeg -i "xxx.mkv" -vcodec copy -acodec copy "xxx.mp4"```
 
-xp https qq安装不安全
-KB931125-rootsupd
-https://zhidao.baidu.com/question/1371411766700718419.html
+####xp https qq安装不安全 KB931125-rootsupd https://zhidao.baidu.com/question/1371411766700718419.html 
 
-
-Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.huaweicloud.com/archlinux/$repo/os/$arch
-Server = https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch
+###Arch镜像站
+```
 Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+Server = https://mirrors.huaweicloud.com/archlinux/$repo/os/$arch
+Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
-
+```
+```
 [archlinuxcn]
 SigLevel = Never
-Server =  https://mirrors.bfsu.edu.cn/archlinuxcn/$arch
 Server = http://mirrors.163.com/archlinux-cn/$arch
+#Server =  https://mirrors.bfsu.edu.cn/archlinuxcn/$arch
 #Server = https://mirrors.cloud.tencent.com/archlinuxcn/$arch
 #Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 #Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+```
 
-sudo pacman -S nvidia-prime
-netease网易云音乐中文
-https://gitee.com/sakura99/netease-cloud-music_For_Arch
+**netease网易云音乐中文**  https://gitee.com/sakura99/netease-cloud-music_For_Arch
 
-nvidia 显卡
-prime方案
-https://blog.sakuya.love/archives/linuxgpu/
-optimus方案
-sudo pacman -S nvidia bbswitch optimus-manager-qt lib32-nvidia-utils
-https://tieba.baidu.com/p/6340530678
+**nvidia 显卡**  
+prime方案  https://blog.sakuya.love/archives/linuxgpu/  
+optimus方案  https://tieba.baidu.com/p/6340530678
+```
+sudo pacman -S nvidia bbswitch optimus-manager-qt lib32-nvidia-utils 
+```
+**Office onedrive**  https://www.office.com/?auth=2  
 
-QQ双开
-/opt/deepinwine/apps/Deepin-QQ/run.sh&;/opt/deepinwine/apps/Deepin-QQ/run.sh&
-ssr
-http://116.62.61.76:8080/directlink/5/app/electron-ssr-0.2.6.AppImage
-https://youyun666.site/link/3tf2wnojixh2FjwM?sub=1
-zshrc
-http://116.62.61.76:8080/directlink/5/zshrc
+**VMware**  https://blog.csdn.net/qq_44090577/article/details/94434578
 
-Office onedrive
-https://www.office.com/?auth=2
-
-VMware
-https://blog.csdn.net/qq_44090577/article/details/94434578
-
-QQ
-https://www.lulinux.com/archives/1319
+**临时关闭IPV6 ** 
+```
 sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
 sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
 sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
+```
+**deepin-wine缺少某libcurses5** ```sudo pacman -S archlinuxcn/lib32-ncurses5-compat-libs```
 
-archlinuxcn/lib32-ncurses5-compat-libs
+**deepin-wine更改缩放**
+```env WINEPREFIX="$HOME/.deepinwine/Deepin-QQLight" deepin-wine winecfg```
 
-env WINEPREFIX="$HOME/.deepinwine/Deepin-QQLight" deepin-wine winecfg
-
-sudo pacman -S--noconfirm fcitx-im kcm-fcitx
-
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-
-sudo pacman -S archlinuxcn-keyring
-sudo pacman -Syy
-sudo pacman-mirrors -i -c China -m rank
-
-wps中文包
+**wps中文包**
 wps-office-mui-zh-cn
 
-deepin-qq中文字体
+**deepin-qq中文字体**
 https://www.cnblogs.com/crab-in-the-northeast/p/change-chinese-font-of-deepin-wine-qq.html
-sudo pacman -S --noconfirm lib32-ncurses5-compat-libs
 
-sudo pacman -S --noconfirm wqy-zenhei wqy-microhei &&fc-cache -fv
-pacman -S ttf-dejavu wqy-zenhei wqy-microhei
-
-https://zhuanlan.zhihu.com/p/89575803
-
-https://www.linuxidc.com/Linux/2011-05/36215.htm
-
-conky
+~conky~
 http://blog.sina.com.cn/s/blog_49895cf101014cw9.html
 
 sudo pacman -S wqy-microhei
@@ -150,7 +113,7 @@ sudo nano ~/.xprofile
 
 export LC_CTYPE=zh_CN.UTF-8
 export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx5
 export XMODIFIERS="@im=fcitx"
 
 firefox双击关闭标签页
@@ -161,7 +124,7 @@ firefox双击关闭标签页
 微软雅黑 宋体 字体 
 /usr/share/fonts/ms/
 SimSun  Msyh
-sudo cp /run/media/aya/B0AC5CB5AC5C77B4/Windows/Fonts/*.ttc ./&&sudo cp /run/media/aya/B0AC5CB5AC5C77B4/Windows/Fonts/*.ttf ./
+sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttc ./&&sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttf ./
 sudo chmod 766 *.ttc
 mkfontscale&&mkfontdir&&fc-cache -fv
 
@@ -241,9 +204,12 @@ sudo pacman -S --noconfirm axel uget uget-integrator-firefox flashplugin netease
 chrome
 如需拖拽安装插件，则请在启动命令后加上 --enable-easy-off-store-extension-install
 
-sudo pacman -S --noconfirm axel uget uget-integrator-firefox flashplugin virtualbox virtualbox-host-dkms redshift motrix-git baidunetdisk-bin wps-office ttf-wps-fonts wps-office-mui-zh-cn hmcl remmina freerdp evince steam onedrive flameshot-git baka-mplayer fsearch-git albert pikaur
+sudo pacman -S --noconfirm axel flashplugin virtualbox virtualbox-host-dkms redshift motrix-git baidunetdisk-bin wps-office ttf-wps-fonts deepin-terminal-old hmcl remmina freerdp evince steam flameshot-git baka-mplayer fsearch-git pikaur  scrcpy
+
+
+
 
 //WSL-Ubuntu18.04 LTS 重启方法
 //以管理员权限运行cmd
->net stop LxssManager	//停止
+>net stop LxssManager    //停止
 >>net start LxssManager	//启动
