@@ -110,7 +110,7 @@ sudo chmod 766 /usr/share/fonts/ms/* &&mkfontscale&&mkfontdir&&fc-cache -fv
 
 
 **virtualbox错误Kernel driver not installed (rc=-1908) "arch"**  
-解决方法：```sudo pacman -S linux-headers virtualbox-host-modules-arch && sudo modprobe vboxdrv```
+解决方法：```sudo pacman -S linux-headers virtualbox-host-modules-arch && sudo modprobe vboxdrv```  
 参考[Archwiki](https://wiki.archlinux.org/index.php/VirtualBox_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 
 **pacman生成软件列表与恢复**
