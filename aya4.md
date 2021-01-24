@@ -186,8 +186,8 @@ pacman -S archlinux-keyring
 pacman -S archlinuxcn-keyring
 ```
 
-**chrome  **
-如需拖拽安装插件，则请在启动命令后加上 --enable-easy-off-store-extension-install
+**chrome插件**
+如需拖拽安装插件，则请在启动命令后加上 `--enable-easy-off-store-extension-install`
 
 ~~**常用软件**~~  
 ~~sudo pacman -S --noconfirm axel flashplugin virtualbox virtualbox-host-dkms redshift motrix-git baidunetdisk-bin wps-office ttf-wps-fonts deepin-terminal-old hmcl remmina freerdp evince steam flameshot-git baka-mplayer fsearch-git pikaur  scrcpy~~  
