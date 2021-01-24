@@ -74,70 +74,44 @@ https://www.cnblogs.com/crab-in-the-northeast/p/change-chinese-font-of-deepin-wi
 
 ~~**conky**  http://blog.sina.com.cn/s/blog_49895cf101014cw9.html~~
 
-sudo pacman -S wqy-microhei
-
-https://www.jianshu.com/p/737a6ab30091
-https://zhuanlan.zhihu.com/p/64960991
-https://blog.csdn.net/qq_35306993/article/details/89440205?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
-
-https://blog.csdn.net/weixin_43968923/article/details/86662256
+**Manjaro常用软件安装** https://blog.csdn.net/weixin_43968923/article/details/86662256
 
 
 ArcoLinux 的安装镜像分为三种：ArcoLinux、ArcoLinuxD 及 ArcoLinuxB。ArcoLinux 默认包含三个同时存在的桌面环境或窗口管理器：Xfce、OpenBox 及 i3。用户可以在这三个桌面之间快速地切换。ArcoLinuxD 是一个最小化安装，D 代表「Choose the Desktop」，它允许用户修改安装脚本并选择自己喜好的桌面环境。ArcoLinuxB 提供了高度的可定制性，B 代表「Build Your Own ISO」。其允许用户任意修改 ISO 文件。ArcoLinuxB 也预先提供了分别配有不同桌面环境的十余种预先构建好的安装镜像。这些桌面环境包括但不限于 Cinnamon、Awesome、Bugdie、GNOME、MATE 及 Plasama。
 
-sudo rm /usr/lib/p11-kit-trust.so
-
-sudo pacman -S --noconfirm wqy-zenhei wqy-microhei &&fc-cache -fv &&sudo pacman -S --noconfirm axel uget-integrator-firefox flashplugin&&sudo pacman -S --noconfirm netease-cloud-music &&sudo pacman -S --noconfirm you-get &&sudo pacman -S --noconfirm visual-studio-code-bin sublime-text-imfix&&sudo pacman -S --noconfirm virtualbox virtualbox-host-dkms&&sudo pacman -S --noconfirm redshift&&sudo pacman -S --noconfirm motrix-git &&sudo pacman -S --noconfirm baidunetdisk-bin &&sudo pacman -S --noconfirm wps-office ttf-wps-fonts wps-office-mui-zh-cn&&sudo pacman -S --noconfirm hmcl &&sudo pacman -S --noconfirm remmina freerdp&&sudo pacman -S --noconfirm evince&&sudo pacman -S --noconfirm deepin.com.qq.im&&sudo pacman -S --noconfirm steam&&sudo pacman -S --noconfirm v2ray qv2ray onedrive&&yay -S guiscrcpy qt-scrcpy --noconfirm&&sudo pacman -S --noconfirm extra/noto-fonts-cjk extra/noto-fonts-emoji extra/noto-fonts
-&&sudo pacman -S --noconfirm deepin.com.qq.im
-&&sudo pacman -S --noconfirm adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-sans-tw-fonts 
+sudo pacman -S --noconfirm adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-sans-tw-fonts 
  wps-office-mui-zh-cn
 
 
-搜狗拼音
-https://www.cnblogs.com/qscgy/archive/2020/07/27/13385905.html
+~~搜狗拼音  https://www.cnblogs.com/qscgy/archive/2020/07/27/13385905.html~~  
+~~yay -S fcitx fcitx-configtool fcitx-sogoupinyin aur/fcitx-qt4 --noconfirm &&sudo pacman -U https://arch-archive.tuna.tsinghua.edu.cn/2019/04-29/community/os/x86_64/fcitx-qt4-4.2.9.6-1-x86_64.pkg.tar.xz && sudo pacman -S fcitx fcitx-configtool fcitx-sogoupinyin~~
 
-yay -S fcitx fcitx-configtool fcitx-sogoupinyin aur/fcitx-qt4 --noconfirm
-sudo pacman -U https://arch-archive.tuna.tsinghua.edu.cn/2019/04-29/community/os/x86_64/fcitx-qt4-4.2.9.6-1-x86_64.pkg.tar.xz && sudo pacman -S fcitx fcitx-configtool fcitx-sogoupinyin
+**sublime3汉化** https://blog.csdn.net/Andrelia20171760/article/details/81814652?
 
+**firefox双击关闭标签页**  
+>1、浏览器打开about:config回车  
+>2、在显示的搜索框输入 browser.tabs.closeTabByDblclick  
+>3、双击内容，切换为true 
+  
+**微软雅黑 宋体 字体 ** /usr/share/fonts/ms/  
+SimSun  Msyh  
+```sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttc ./&&sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttf ./
+sudo chmod 766 *.ttc &&mkfontscale&&mkfontdir&&fc-cache -fv```
 
- fcitx-lilydjwg fcitx-qt5 fcitx-sogoupinyin fcitx-configtool或kcm-fcitx
+**virtualbox错误Kernel driver not installed (rc=-1908) "arch"**  
+解决方法：```sudo pacman -S linux-headers virtualbox-host-modules-arch && sudo modprobe vboxdrv```
 
-YAY AUR：qv2ray
-
-
-sublime3汉化
-https://blog.csdn.net/Andrelia20171760/article/details/81814652?
-
-sudo nano ~/.xprofile
-
-export LC_CTYPE=zh_CN.UTF-8
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx5
-export XMODIFIERS="@im=fcitx"
-
-firefox双击关闭标签页
-1、浏览器打开about:config回车。
-2、在显示的搜索框输入 browser.tabs.closeTabByDblclick
-3、双击内容，切换为true 
-
-微软雅黑 宋体 字体 
-/usr/share/fonts/ms/
-SimSun  Msyh
-sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttc ./&&sudo cp /run/media/aya/71475E9362E7021C/Windows/Fonts/*.ttf ./
-sudo chmod 766 *.ttc
-mkfontscale&&mkfontdir&&fc-cache -fv
-
-安装deb转换
-yay -S debtap
-
-virtualbox错误Kernel driver not installed (rc=-1908) "arch"
-解决：sudo pacman -S linux-headers virtualbox-host-modules-arch && sudo modprobe vboxdrv
-
-xdroid
-/var/xdroid/common/data/media/0/
-
-pacman 软件列表
-https://blog.csdn.net/muwuren/article/details/94657531
+**pacman生成软件列表与恢复 **
+```
+#生成软件包列表
+pacman -Qqen > packages-repository.txt
+pacman -Qqem > packages-AUR.txt
+#重新安装
+pacman --needed -S - < packages-repository.txt 
+cat packages-AUR.txt | xargs yaourt -S --needed --noconfirm
+#清除多余包
+yaourt -R `pacman -Qdqt`
+```
 
 scrcpy投屏
 yay -S guiscrcpy qt-scrcpy
