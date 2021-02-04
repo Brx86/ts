@@ -9,7 +9,7 @@ HostKey + Home
 
 **火萤动态壁纸** http://bbs.huoying666.com/forum-53-1.html  
 
-**默认zsh** ```sudo chsh -s /bin/zsh```
+**默认zsh** ```chsh -s /bin/zsh```
 
 **flv/mkv -> mp4**  ```ffmpeg -i "xxx.mkv" -vcodec copy -acodec copy "xxx.mp4"```
 
