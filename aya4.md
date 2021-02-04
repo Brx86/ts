@@ -5,7 +5,7 @@ HostKey + Home
 
 **win精简版** https://www.winos.me/windows10/
 
-**浏览器P2Pxprofile** http://pplink.link/
+**浏览器P2P传文件** https://www.ppzhilian.com/
 
 **火萤动态壁纸** http://bbs.huoying666.com/forum-53-1.html  
 
@@ -68,9 +68,6 @@ https://www.cnblogs.com/crab-in-the-northeast/p/change-chinese-font-of-deepin-wi
 
 
 ArcoLinux 的安装镜像分为三种：ArcoLinux、ArcoLinuxD 及 ArcoLinuxB。ArcoLinux 默认包含三个同时存在的桌面环境或窗口管理器：Xfce、OpenBox 及 i3。用户可以在这三个桌面之间快速地切换。ArcoLinuxD 是一个最小化安装，D 代表「Choose the Desktop」，它允许用户修改安装脚本并选择自己喜好的桌面环境。ArcoLinuxB 提供了高度的可定制性，B 代表「Build Your Own ISO」。其允许用户任意修改 ISO 文件。ArcoLinuxB 也预先提供了分别配有不同桌面环境的十余种预先构建好的安装镜像。这些桌面环境包括但不限于 Cinnamon、Awesome、Bugdie、GNOME、MATE 及 Plasama。
-
-~~**皮皮直连**~~
-~~https://www.ppzhilian.com/~~
 
 **中文字体**
 ```
