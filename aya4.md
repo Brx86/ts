@@ -34,7 +34,7 @@ Server =  https://mirrors.bfsu.edu.cn/archlinuxcn/$arch
 Server = https://mirrors.cloud.tencent.com/archlinuxcn/$arch
 Server = http://mirrors.163.com/archlinux-cn/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
-Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch%   
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch   
 ```
 
 **netease网易云音乐中文**  https://gitee.com/sakura99/netease-cloud-music_For_Arch
