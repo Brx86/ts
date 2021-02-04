@@ -1,14 +1,6 @@
 **arco镜像站**  https://bike.seedhost.eu/arcolinux/iso/
 
-**皮皮直连**
-https://www.ppzhilian.com/
 
-**jetson开启图形界面**
-```
-sudo systemctl set-default graphical.target #开启
-sudo reboot
-sudo systemctl set-default multi-user.target #关闭
-sudo reboot
 ```
 **vbox隐藏菜单栏：**
 HostKey + Home
@@ -79,6 +71,8 @@ https://www.cnblogs.com/crab-in-the-northeast/p/change-chinese-font-of-deepin-wi
 
 ArcoLinux 的安装镜像分为三种：ArcoLinux、ArcoLinuxD 及 ArcoLinuxB。ArcoLinux 默认包含三个同时存在的桌面环境或窗口管理器：Xfce、OpenBox 及 i3。用户可以在这三个桌面之间快速地切换。ArcoLinuxD 是一个最小化安装，D 代表「Choose the Desktop」，它允许用户修改安装脚本并选择自己喜好的桌面环境。ArcoLinuxB 提供了高度的可定制性，B 代表「Build Your Own ISO」。其允许用户任意修改 ISO 文件。ArcoLinuxB 也预先提供了分别配有不同桌面环境的十余种预先构建好的安装镜像。这些桌面环境包括但不限于 Cinnamon、Awesome、Bugdie、GNOME、MATE 及 Plasama。
 
+~~**皮皮直连**~~
+~~https://www.ppzhilian.com/~~
 
 **中文字体**
 ```
@@ -186,6 +180,12 @@ pacman-key --populate archlinux
 pacman -S archlinux-keyring
 pacman -S archlinuxcn-keyring
 ```
+**jetson开启图形界面**
+```
+sudo systemctl set-default graphical.target #开启
+sudo reboot
+sudo systemctl set-default multi-user.target #关闭
+sudo reboot
 
 **chrome插件**
 如需拖拽安装插件，则请在启动命令后加上 `--enable-easy-off-store-extension-install`
