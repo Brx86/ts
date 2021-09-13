@@ -67,7 +67,7 @@ chown aya -R /home/aya/.ssh
 grub-install /dev/vda
 grub-mkconfig -o /boot/grub/grub.cfg
 SETUP
-chmod +x /mnt/setup.sh
+chmod 777 /mnt/setup.sh
 echo '正在挂载/dev/vda1...'
 mount /dev/vda1 /mnt
 cd /mnt
@@ -87,7 +87,7 @@ echo 'Server = http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch' > /tmp/archf
 echo 'nameserver 114.114.114.114' > /tmp/archfs/etc/resolv.conf
 echo '即将进入live系统...'
 mount --bind /tmp/archfs /tmp/archfs
-chmod +x /tmp/archfs/live.sh
+chmod 777 /tmp/archfs/live.sh
 /tmp/archfs/bin/arch-chroot /tmp/archfs/ /live.sh
 echo '安装完成，3秒后重启...'
 reboot
