@@ -36,9 +36,23 @@ Include = /etc/pacman.d/mirrorlist
 AYA
 
 cat > /tmp/archfs/live.sh <<- LIVE
-cat > /mnt/setup.sh <<- SETUP
+echo '正在挂载/dev/vda1...'
+mount /dev/vda1 /mnt
+cd /mnt
+echo '正在删除原系统...'
+rm -rf bin boot etc home mnt opt root sbin srv usr var vml* ini* lib* med*
+echo '开始安装Archlinux...'
+pacstrap /mnt base base-devel linux-lts linux-firmware nano dhcpcd openssh grub
+echo '生成fstab...'
+genfstab -U /mnt >> /mnt/etc/fstab
+echo '即将进入Archliux...'
+arch-chroot /mnt /setup.sh
+LIVE
+
+cat > /setup.sh <<- SETUP
 #!/usr/bin/bash
 #Auther: Ayatale
+echo '设置时区与网络...'
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo aya-ali > /etc/hostname
 echo "127.0.0.1 localhost" > /etc/hosts
@@ -67,25 +81,15 @@ chown aya -R /home/aya/.ssh
 grub-install /dev/vda
 grub-mkconfig -o /boot/grub/grub.cfg
 SETUP
-echo '正在挂载/dev/vda1...'
-mount /dev/vda1 /mnt
-cd /mnt
-echo '正在删除原系统...'
-rm -rf bin boot etc home mnt opt root sbin srv usr var vml* ini* lib* med*
-echo '开始安装Archlinux...'
-pacstrap /mnt base base-devel linux-lts linux-firmware nano dhcpcd openssh grub
-echo '生成fstab...'
-genfstab -U /mnt >> /mnt/etc/fstab
-echo '即将进入Archliux...'
-arch-chroot /mnt bash < /mnt/setup.sh
-LIVE
 
 rm /tmp/archfs/etc/resolv.conf
-echo 'Server = http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch' > /tmp/archfs/etc/pacman.d/mirrorlist
+echo 'Server = http://mirrors.163.com/archlinux/$repo/os/$arch' > /tmp/archfs/etc/pacman.d/mirrorlist
 echo 'nameserver 114.114.114.114' > /tmp/archfs/etc/resolv.conf
 echo '即将进入live系统...'
 mount --bind /tmp/archfs /tmp/archfs
 chmod 777 /tmp/archfs/live.sh
+chmod 777 /setup.sh
 /tmp/archfs/bin/arch-chroot /tmp/archfs/ /live.sh
 echo '安装完成，3秒后重启...'
 reboot
+
