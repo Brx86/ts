@@ -70,9 +70,9 @@ DHCP=ipv4
 UseHostname=false
 DHCP
 useradd aya -m -G wheel
-echo "设置root密码...:"
+echo "设置root密码..."
 echo root:w|chpasswd
-echo "设置aya密码...:"
+echo "设置aya密码..."
 echo aya:w|chpasswd
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 mkdir /home/aya/.ssh
