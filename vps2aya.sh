@@ -9,6 +9,7 @@ echo '正在解压rootfs.tar.xz...'
 tar xf rootfs.tar.xz
 rm rootfs.tar.xz
 echo '正在设置pacman.conf mirrorlist resolv.conf...'
+
 cat > /tmp/archfs/etc/pacman.conf <<- AYA
 [options]
 HoldPkg     = pacman glibc
@@ -80,9 +81,11 @@ echo '即将进入Archliux...'
 arch-chroot /mnt bash < /root/setup.sh
 LIVE
 
-echo 'Server = http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch' > /tmp/archfs/etc/pacman.d/mirrorlist
 rm /tmp/archfs/etc/resolv.conf
+echo 'Server = http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch' > /tmp/archfs/etc/pacman.d/mirrorlist
 echo 'nameserver 114.114.114.114' > /tmp/archfs/etc/resolv.conf
 echo '即将进入live系统...'
 mount --bind /tmp/archfs /tmp/archfs
 /tmp/archfs/bin/arch-chroot /tmp/archfs/ bash < /tmp/archfs/live.sh
+echo '安装完成，3秒后重启...'
+reboot
