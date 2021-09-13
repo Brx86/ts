@@ -67,7 +67,6 @@ chown aya -R /home/aya/.ssh
 grub-install /dev/vda
 grub-mkconfig -o /boot/grub/grub.cfg
 SETUP
-chmod 777 /mnt/setup.sh
 echo '正在挂载/dev/vda1...'
 mount /dev/vda1 /mnt
 cd /mnt
@@ -77,9 +76,8 @@ echo '开始安装Archlinux...'
 pacstrap /mnt base base-devel linux-lts linux-firmware nano dhcpcd openssh grub
 echo '生成fstab...'
 genfstab -U /mnt >> /mnt/etc/fstab
-umount /etc/resolv.conf
 echo '即将进入Archliux...'
-arch-chroot /mnt /setup.sh
+arch-chroot /mnt bash < /mnt/setup.sh
 LIVE
 
 rm /tmp/archfs/etc/resolv.conf
