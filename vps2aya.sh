@@ -56,10 +56,10 @@ DHCP=ipv4
 UseHostname=false
 DHCP
 useradd aya -m -G wheel
-echo "请设置root密码:"
-passwd
-echo "请设置aya密码:"
-passwd ayas
+echo "设置root密码...:"
+echo root:w|chpasswd
+echo "设置aya密码...:"
+echo aya:w|chpasswd
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 mkdir /home/aya/.ssh
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDB/Hfn+8P9nveMHUSjaJxsJZuiZ7qdfqz9P8K2pYRAskBqkq7/Q7iL/he5ALas0B9UR0oYUPVCmRxBSJ1hci+nZtIjvJqQKcygSGCVvD19Velb6EwMLTP1uCfmkb+4WgcrU9OHBP/qqf3pIHhJolN2o+6c5iQFPkOHfMCkg4XiN14JolUQ/0Q62BH8XlWUisLuv/a0LKsI0jKTQ5RikVD02+g7eoE9e2Db7asqzPUnLknT8MpLcXOemV7/1EJM8cKRQCwRTbOpTPBfNTU7llGXSBn/HNIa58plIt4mOedrNROasIXyYtoLNJ/ij6xaoavrMXoWzG+54NYvLceIlm8uzeletJjO5npaAOhl5i7LnbO9epiYR0owEUY96RCmW1AO/5oC3RbsTttY8EWl2eGsJolrtJ9CYqP96MZoOAYUZYvkFvEVpN8HmtJGNOE5UuxbMkiRLzSGvciF00bYrgmaLGZSRk292jn7w+OU2DFYqWF3cCbMlj/yZqE/sqZC40M= 1124852137@qq.com" > /home/aya/.ssh/authorized_keys
