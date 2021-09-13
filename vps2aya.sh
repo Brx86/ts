@@ -90,6 +90,6 @@ mount --bind /tmp/archfs /tmp/archfs
 chmod 777 /tmp/archfs/live.sh
 chmod 777 /setup.sh
 /tmp/archfs/bin/arch-chroot /tmp/archfs/ /live.sh
-echo '安装完成，3秒后重启...'
+echo '安装完成，即将重启...'
 reboot
 
