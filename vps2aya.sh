@@ -77,11 +77,10 @@ echo '生成fstab...'
 genfstab -U /mnt >> /mnt/etc/fstab
 umount /etc/resolv.conf
 echo '即将进入Archliux...'
-arch-chroot /mnt
-#curl |arch-chroot /mnt bash
+arch-chroot /mnt bash < /root/setup.sh
 LIVE
 
-echo 'Server = http://mirrors.163.com/archlinux/$repo/os/$arch' > /tmp/archfs/etc/pacman.d/mirrorlist
+echo 'Server = http://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch' > /tmp/archfs/etc/pacman.d/mirrorlist
 rm /tmp/archfs/etc/resolv.conf
 echo 'nameserver 114.114.114.114' > /tmp/archfs/etc/resolv.conf
 echo '即将进入live系统...'
