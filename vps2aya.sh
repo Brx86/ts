@@ -10,7 +10,7 @@ tar xf rootfs.tar.xz
 rm rootfs.tar.xz
 echo '正在设置pacman.conf mirrorlist resolv.conf...'
 
-cat > /tmp/archfs/etc/pacman.conf <<- AYA
+cat > /tmp/archfs/etc/pacman.conf <<- PAC
 [options]
 HoldPkg     = pacman glibc
 Architecture = auto
@@ -33,7 +33,7 @@ Include = /etc/pacman.d/mirrorlist
 Include = /etc/pacman.d/mirrorlist
 [multilib]
 Include = /etc/pacman.d/mirrorlist
-AYA
+PAC
 
 cat > /tmp/archfs/live.sh <<- LIVE
 echo '正在挂载/dev/vda1...'
