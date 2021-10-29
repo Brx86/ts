@@ -53,7 +53,10 @@ cat > /setup.sh <<- SETUP
 #!/usr/bin/bash
 #Auther: Ayatale
 echo '设置时区与网络...'
-ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+#ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+timedatectl set-timezone Asia/Shanghai
+timedatectl set-ntp true
+hwclock --systohc
 echo aya-ali > /etc/hostname
 echo "127.0.0.1 localhost" > /etc/hosts
 echo "127.0.0.1 aya-ali" >> /etc/hosts
