@@ -51,7 +51,7 @@ LIVE
 
 cat > /setup.sh <<- SETUP
 #!/usr/bin/bash
-#Auther: Ayatale
+# Auther: Ayatale
 echo '设置时区与网络...'
 #ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 timedatectl set-timezone Asia/Shanghai
