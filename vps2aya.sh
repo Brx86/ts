@@ -28,7 +28,7 @@ CheckSpace
 #VerbosePkgLists
 ParallelDownloads = 5
 ILoveCandy
-SigLevel = Never
+SigLevel    = Never
 LocalFileSigLevel = Never
 [core]
 Include = /etc/pacman.d/mirrorlist
@@ -92,7 +92,7 @@ grub-install /dev/vda
 grub-mkconfig -o /boot/grub/grub.cfg
 SETUP
 
-echo "Server = https://$MIRROR/archlinux/$repo/os/$arch" > /tmp/archfs/etc/pacman.d/mirrorlist
+echo "Server = https://$MIRROR/archlinux/\$repo/os/\$arch" > /tmp/archfs/etc/pacman.d/mirrorlist
 echo "nameserver $DNS" > /tmp/archfs/etc/resolv.conf
 echo "即将进入live系统..."
 mount --bind /tmp/archfs /tmp/archfs
