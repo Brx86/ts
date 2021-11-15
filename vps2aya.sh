@@ -5,6 +5,7 @@ USER=aya
 DNS=8.8.8.8
 HOSTNAME=aya-g
 MIRROR=cloudflaremirrors.com
+#MIRROR=mirrors.bfsu.edu.cn
 
 latest=`curl -s https://mirrors.bfsu.edu.cn/lxc-images/images/archlinux/current/amd64/default/|grep -o 'href=".*/" '|awk -F\" '{print $2}'|tail -n1`
 echo "正在下载$latest的容器镜像..."
