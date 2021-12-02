@@ -11,3 +11,7 @@ cd /home/aya/
 wget https://git.io/theme.tar.xz
 tar xvf theme.tar.xz
 mv theme-and-background/ZorinBlue-Dark /usr/share/themes/
+while true; do
+    echo "已完成，请使用nomachine连接到服务器"
+    sleep 10
+done
