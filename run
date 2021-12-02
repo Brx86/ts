@@ -29,6 +29,7 @@ echo "type = tcp" >> test
 echo "local_port = $local_port" >> test
 echo "remote_port = $remote_port" >> test
 nohup ./frpc -c frpc.ini&
+cat ./frpc.ini
 echo "6.启动frpc成功"
 for i in {1..2100};do
     echo "已完成，请使用nomachine连接到服务器...$[10*i]s"
