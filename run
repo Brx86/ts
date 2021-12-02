@@ -31,6 +31,6 @@ echo "remote_port = $remote_port" >> ./frpc.ini
 nohup ./frpc -c frpc.ini&
 echo "6.启动frpc成功!\t地址: g.aya1.top:$remote_port"
 for i in {1..2100};do
-    echo "已完成，请使用nomachine连接到g.aya1.top:$remote_port...$[10*i]s"
     sleep 10
+    echo "已完成，请使用nomachine连接到g.aya1.top:$remote_port...$[10*i]s"
 done
