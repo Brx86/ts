@@ -37,6 +37,9 @@ echo "6.启动frpc成功!"
 MSG="ssh $USER@[ip] -p $ssh_portENTERNxplayer: [ip]:$nx_port"
 curl 'http://t.aya1.top:5700/send_msg?access_token=ayatale&message_type=group&group_id=204097403&message=$MSG'
 for i in {1..2100};do
-    sleep 10
-    echo "$[10*i]s...\nssh $USER@g.aya1.top -p $ssh_port\nNxplayer: g.aya1.top:$nx_port"
+    sleep 5
+    echo "$[10*i]s..."
+    sleep 5
+    echo "ssh $USER@g.aya1.top -p $ssh_port"
+    echo "Nxplayer: g.aya1.top:$nx_port"
 done
