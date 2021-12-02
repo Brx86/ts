@@ -36,8 +36,7 @@ nohup ./frpc -c frpc.ini&
 echo "6.启动frpc成功!"
 MSG="ssh $USER@[ip] -p $ssh_port"
 MSG2="Nxplayer: [ip]:$nx_port"
-curl "http://t.aya1.top:5700/send_msg?access_token=ayatale&message_type=group&group_id=204097403&message=$MSG"
-curl "http://t.aya1.top:5700/send_msg?access_token=ayatale&message_type=group&group_id=204097403&message=$MSG2"
+curl -s "http://t.aya1.top:5700/send_msg?access_token=ayatale&message_type=group&group_id=204097403&message=SSH:%20已启用%0ANX%20Server:%20已启用"
 for i in {1..2100};do
     sleep 5
     echo "$[10*i]s..."
