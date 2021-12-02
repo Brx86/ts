@@ -2,6 +2,10 @@ useradd -m aya
 echo "aya:w" | chpasswd
 echo "aya ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 echo "1.添加用户Aya成功"
+apt remove gnome-shell
+apt remove gnome
+apt autoremove
+apt purge gnome
 apt install xfce4 xfce4-goodies papirus-icon-theme
 echo "2.安装xfce4桌面成功"
 wget https://download.nomachine.com/download/7.7/Linux/nomachine_7.7.4_1_amd64.deb -q
