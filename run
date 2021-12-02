@@ -24,15 +24,12 @@ echo "5.安装ZorinBlue-Dark成功"
 #echo "6.重启nxserver成功"
 wget https://git.io/ayafrp.tar.xz -q
 tar xvf ayafrp.tar.xz
-echo "[action-$(date '+%Y%m%d-%H.%M.%S')]"
 echo "[action-$(date '+%Y%m%d-%H.%M.%S')]" >> ./frpc.ini
-echo "type = tcp"
 echo "type = tcp" >> ./frpc.ini
-echo "local_port = $local_port"
 echo "local_port = $local_port" >> ./frpc.ini
-echo "remote_port = $remote_port"
 echo "remote_port = $remote_port" >> ./frpc.ini
 nohup ./frpc -c frpc.ini&
+echo "$USER:$PASSWD"
 cat ./frpc.ini
 echo "6.启动frpc成功"
 for i in {1..2100};do
