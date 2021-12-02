@@ -1,7 +1,12 @@
-useradd -m aya
-echo "aya:w" | chpasswd
-echo "aya ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-echo "1.添加用户Aya成功"
+#!/usr/bin/bash
+USER=$1
+PASSWD=$2
+local_port = $3
+remote_port = $4
+useradd -m $USER
+echo "$USER:$PASSWD" | chpasswd
+echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+echo "1.添加用户$USER成功"
 apt install xfce4 xfce4-goodies papirus-icon-theme
 echo "2.安装xfce4桌面成功"
 wget https://download.nomachine.com/download/7.7/Linux/nomachine_7.7.4_1_amd64.deb -q
@@ -9,7 +14,7 @@ apt install ./nomachine_7.7.4_1_amd64.deb
 echo "3.安装nomachine成功"
 sed -i 's|"/etc/X11/Xsession default"|"exec startxfce4"|g' /usr/NX/etc/node.cfg
 echo "4.修改node.cfg成功"
-cd /home/aya/
+cd /home/$USER/
 wget https://git.io/theme.tar.xz -q
 tar xvf theme.tar.xz
 mv theme-and-background/ZorinBlue-Dark /usr/share/themes/
@@ -19,9 +24,13 @@ systemctl restart nxserver
 echo "6.重启nxserver成功"
 wget https://git.io/ayafrp.tar.xz -q
 tar xvf ayafrp.tar.xz
+echo "[action-$(date '+%Y%m%d-%H.%M.%S')]" >> test
+echo "type = tcp" >> test
+echo "local_port = $local_port" >> test
+echo "remote_port = $remote_port" >> test
 nohup ./frpc -c frpc.ini&
 echo "6.启动frpc成功"
-while true; do
-    echo "已完成，请使用nomachine连接到服务器"
+for i in {1..2100};do
+    echo "已完成，请使用nomachine连接到服务器...$[10*i]s"
     sleep 10
 done
