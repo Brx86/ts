@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 USER=$1
 PASSWD=$2
-local_port=$3
-remote_port=$4
+ssh_port=$3
+nx_port=$4
 useradd -m $USER
 echo "$USER:$PASSWD" | chpasswd
 echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
@@ -24,13 +24,17 @@ echo "5.安装ZorinBlue-Dark成功"
 #echo "6.重启nxserver成功"
 wget https://git.io/ayafrp.tar.xz -q
 tar xvf ayafrp.tar.xz
-echo "[action-$(date '+%Y%m%d-%H.%M.%S')]" >> ./frpc.ini
+echo "[ssh-$(date '+%Y%m%d-%H.%M.%S')]" >> ./frpc.ini
 echo "type = tcp" >> ./frpc.ini
-echo "local_port = $local_port" >> ./frpc.ini
-echo "remote_port = $remote_port" >> ./frpc.ini
+echo "local_port = 22" >> ./frpc.ini
+echo "remote_port = $ssh_port" >> ./frpc.ini
+echo "[nx-$(date '+%Y%m%d-%H.%M.%S')]" >> ./frpc.ini
+echo "type = tcp" >> ./frpc.ini
+echo "local_port = 4000" >> ./frpc.ini
+echo "remote_port = $nx_port" >> ./frpc.ini
 nohup ./frpc -c frpc.ini&
-echo "6.启动frpc成功!\t地址: g.aya1.top:$remote_port"
+echo "6.启动frpc成功!"
 for i in {1..2100};do
     sleep 10
-    echo "已完成，请使用nomachine连接到g.aya1.top:$remote_port...$[10*i]s"
+    echo "$[10*i]s...\nssh $USER@g.aya1.top -p $ssh_port\nNxplayer: g.aya1.top:nx_port"
 done
