@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 USER=$1
 PASSWD=$2
-local_port = $3
-remote_port = $4
+local_port=$3
+remote_port=$4
 useradd -m $USER
 echo "$USER:$PASSWD" | chpasswd
 echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
@@ -29,10 +29,8 @@ echo "type = tcp" >> ./frpc.ini
 echo "local_port = $local_port" >> ./frpc.ini
 echo "remote_port = $remote_port" >> ./frpc.ini
 nohup ./frpc -c frpc.ini&
-echo "$USER:$PASSWD"
-cat ./frpc.ini
-echo "6.启动frpc成功"
+echo "6.启动frpc成功!\t地址: g.aya1.top:$remote_port"
 for i in {1..2100};do
-    echo "已完成，请使用nomachine连接到服务器...$[10*i]s"
+    echo "已完成，请使用nomachine连接到g.aya1.top:$remote_port...$[10*i]s"
     sleep 10
 done
