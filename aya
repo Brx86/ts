@@ -1,0 +1,4 @@
+[aya]
+SigLevel = Never
+Server = http://repo.aya1.top:10/d/$arch/$repo
+Server = https://github.com/Brx86/repo/releases/download/$arch
