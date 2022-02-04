@@ -82,5 +82,6 @@ chmod 777 /archfs/live.sh
 chmod 777 /setup.sh
 /archfs/bin/arch-chroot /archfs/ /live.sh
 echo "安装完成，即将重启..."
+umount -a
 rm -rf /archfs/
 reboot
