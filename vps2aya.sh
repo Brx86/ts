@@ -16,30 +16,8 @@ tar xf rootfs.tar.xz
 rm rootfs.tar.xz
 echo "正在设置pacman.conf mirrorlist resolv.conf..."
 
-cat > /tmp/archfs/etc/pacman.conf <<- PAC
-[options]
-HoldPkg     = pacman glibc
-Architecture = auto
-#IgnorePkg   =
-#IgnoreGroup =
-#UseSyslog
-Color
-#NoProgressBar
-CheckSpace
-#VerbosePkgLists
-ParallelDownloads = 5
-ILoveCandy
-SigLevel    = Never
-LocalFileSigLevel = Never
-[core]
-Include = /etc/pacman.d/mirrorlist
-[extra]
-Include = /etc/pacman.d/mirrorlist
-[community]
-Include = /etc/pacman.d/mirrorlist
-[multilib]
-Include = /etc/pacman.d/mirrorlist
-PAC
+sed -i 's|#Parallel|Parallel|g' /tmp/archfs/etc/pacman.conf
+sed -i 's|SigLevel|SigLevel = Never\n#SigLevel|g' /tmp/archfs/etc/pacman.conf
 
 cat > /tmp/archfs/live.sh <<- LIVE
 echo "正在挂载/dev/vda1..."
@@ -68,6 +46,8 @@ hwclock --systohc
 echo $HOSTNAME > /etc/hostname
 echo "127.0.0.1 localhost" > /etc/hosts
 echo "127.0.0.1 $HOSTNAME" >> /etc/hosts
+sed -i 's|#Parallel|Parallel|g' /etc/pacman.conf
+sed -i 's|SigLevel|SigLevel = Never\n#SigLevel|g' /etc/pacman.conf
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 systemctl enable dhcpcd
@@ -86,7 +66,7 @@ echo root:w|chpasswd
 echo $USER:w|chpasswd
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 mkdir /home/$USER/.ssh
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDB/Hfn+8P9nveMHUSjaJxsJZuiZ7qdfqz9P8K2pYRAskBqkq7/Q7iL/he5ALas0B9UR0oYUPVCmRxBSJ1hci+nZtIjvJqQKcygSGCVvD19Velb6EwMLTP1uCfmkb+4WgcrU9OHBP/qqf3pIHhJolN2o+6c5iQFPkOHfMCkg4XiN14JolUQ/0Q62BH8XlWUisLuv/a0LKsI0jKTQ5RikVD02+g7eoE9e2Db7asqzPUnLknT8MpLcXOemV7/1EJM8cKRQCwRTbOpTPBfNTU7llGXSBn/HNIa58plIt4mOedrNROasIXyYtoLNJ/ij6xaoavrMXoWzG+54NYvLceIlm8uzeletJjO5npaAOhl5i7LnbO9epiYR0owEUY96RCmW1AO/5oC3RbsTttY8EWl2eGsJolrtJ9CYqP96MZoOAYUZYvkFvEVpN8HmtJGNOE5UuxbMkiRLzSGvciF00bYrgmaLGZSRk292jn7w+OU2DFYqWF3cCbMlj/yZqE/sqZC40M= 1124852137@qq.com" > /home/$USER/.ssh/authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCX/5W02YgCHe6Wz8WX9RbPsy0zv/YYsSe7OMKaKqypYXoA2Q39kqaQCGqDNp3tbHRiTioIsuRQ10yEy5kWL6rUX4XOtEHjmYa31qGwvApvufb530ENeUJoo2eefEX+tHBUHQKUiV11u2mu57J99gdIIkj3T++ppwZbK4i5jDiCJVEZb1mXxIxnpnUUstj1PmrKCe/ED7U295hXvxZUM34HCsq7W8XFbfrAJx8Rc69USs1UPLFHr/wTUrbsX02rAviW5S2NXUwsCHL5k1B2/v46dQrztdeLsXp3HysXNZ01yW3sygiuCesUEqxDUS2jSVIlS7fMWKDFQbL1u0C1g346MoH4mQenWfwr+fbboFYMXQVUk2zj/G4Tma909H2XlUDklD0SE1kF9266uA5IQca24ZeZm9750S/CEfNk5Jk6TJrUm9+8YM7QmdS4LxJd2x72X115Rpk1x+d0m0JzSZDTsp1dJYuT4f9NTNA8MB4k+RuZ79atcRpTrPxjDYyZpZM= aya@Ayau" > /home/$USER/.ssh/authorized_keys
 chown $USER -R /home/$USER/.ssh
 echo "安装引导..."
 grub-install /dev/vda
