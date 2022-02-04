@@ -7,19 +7,20 @@ HOSTNAME=aya-g
 MIRROR=cloudflaremirrors.com
 #MIRROR=mirrors.bfsu.edu.cn
 
-latest=$(curl -s https://mirrors.bfsu.edu.cn/lxc-images/images/archlinux/current/amd64/default/ | grep -o 'href=".*/" ' | awk -F\" '{print $2}' | tail -n1)
+archlxc=https://mirrors.bfsu.edu.cn/lxc-images/images/archlinux/current/amd64/default/
+latest=$(curl -s ${archlxc} | grep -o 'href=".*/" ' | awk -F\" '{print $2}' | tail -n1)
 echo "正在下载$latest的容器镜像..."
-wget -q --show-progress https://mirrors.bfsu.edu.cn/lxc-images/images/archlinux/current/amd64/default/${latest}rootfs.tar.xz -P /tmp/archfs/
-cd /tmp/archfs/
+wget -q --show-progress ${archlxc}${latest}rootfs.tar.xz -P /archfs/
+cd /archfs/
 echo "正在解压rootfs.tar.xz..."
 tar xf rootfs.tar.xz
 rm rootfs.tar.xz
 echo "正在设置pacman.conf mirrorlist resolv.conf..."
 
-sed -i 's|#Parallel|Parallel|g' /tmp/archfs/etc/pacman.conf
-sed -i 's|SigLevel|SigLevel = Never\n#SigLevel|g' /tmp/archfs/etc/pacman.conf
+sed -i 's|#Parallel|Parallel|g' /archfs/etc/pacman.conf
+sed -i 's|SigLevel|SigLevel = Never\n#SigLevel|g' /archfs/etc/pacman.conf
 
-cat >/tmp/archfs/live.sh <<-LIVE
+cat >/archfs/live.sh <<-LIVE
 echo "正在挂载/dev/vda1..."
 mount /dev/vda1 /mnt
 cd /mnt
@@ -73,12 +74,13 @@ grub-install /dev/vda
 grub-mkconfig -o /boot/grub/grub.cfg
 SETUP
 
-echo "Server = https://$MIRROR/archlinux/\$repo/os/\$arch" >/tmp/archfs/etc/pacman.d/mirrorlist
-echo "nameserver $DNS" >/tmp/archfs/etc/resolv.conf
+echo "Server = https://$MIRROR/archlinux/\$repo/os/\$arch" >/archfs/etc/pacman.d/mirrorlist
+echo "nameserver $DNS" >/archfs/etc/resolv.conf
 echo "即将进入live系统..."
-mount --bind /tmp/archfs /tmp/archfs
-chmod 777 /tmp/archfs/live.sh
+mount --bind /archfs /archfs
+chmod 777 /archfs/live.sh
 chmod 777 /setup.sh
-/tmp/archfs/bin/arch-chroot /tmp/archfs/ /live.sh
+/archfs/bin/arch-chroot /archfs/ /live.sh
 echo "安装完成，即将重启..."
+rm -rf /archfs/
 reboot
